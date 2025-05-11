@@ -27,8 +27,11 @@ auth_form.addEventListener("submit", async (e)=>{
     const email = document.getElementById("email");
     const password = document.getElementById("password");
     auth.auth(email.value,password.value)
-    .then(() => {
+    .then(async() => {
         modal.close_modal(auth_container);
+        const res = await api.getAll();
+        const data = JSON.parse(res);
+        localStorage.setItem("data", JSON.stringify(data));
         loadVisits(data);
     });
 })
@@ -37,9 +40,9 @@ create_visit.innerText = "Створити візит";
 create_visit.className = "btn";
 create_visit.id = "create_visit";
 const token = localStorage.getItem("token");
-const res = await api.getAll();
-const data = JSON.parse(res);
 if(token) {
+    const res = await api.getAll();
+    const data = JSON.parse(res);
     loadVisits(data);
 }
 create_visit.addEventListener("click",(e)=>{
@@ -158,6 +161,7 @@ close_create.addEventListener("click",(e)=>{
 const create_form = document.getElementById("create");
 create_form.addEventListener("submit",async (e)=>{
     e.preventDefault();
+    const data = JSON.parse(localStorage.getItem("data"));
     const doctor = document.getElementById("doctor");
     const title = document.querySelector("#title");
     const description = document.querySelector("#description");
@@ -180,6 +184,7 @@ create_form.addEventListener("submit",async (e)=>{
                 while (visit_container.firstChild) {
                     visit_container.firstChild.remove();
                 }
+                localStorage.setItem("data", JSON.stringify(data));
                 loadVisits(data);
             })
             break;
@@ -193,6 +198,7 @@ create_form.addEventListener("submit",async (e)=>{
                 while (visit_container.firstChild) {
                     visit_container.firstChild.remove();
                 }
+                localStorage.setItem("data", JSON.stringify(data));
                 loadVisits(data);
             })
             break;
@@ -206,6 +212,7 @@ create_form.addEventListener("submit",async (e)=>{
                 while (visit_container.firstChild) {
                     visit_container.firstChild.remove();
                 }
+                localStorage.setItem("data", JSON.stringify(data));
                 loadVisits(data);
             })
             break;
@@ -216,6 +223,7 @@ create_form.addEventListener("submit",async (e)=>{
 const visit = document.querySelector(".visit_container");
 const main = document.querySelector("main");
 visit.addEventListener("click",async (e)=>{
+    const data = JSON.parse(localStorage.getItem("data"));
     if(e.target.tagName.toLowerCase() === "i"){
         api.deleteVisit(e.target.dataset.id)
         .then(()=>{
@@ -227,6 +235,7 @@ visit.addEventListener("click",async (e)=>{
             while (visit_container.firstChild) {
                 visit_container.firstChild.remove();
             }     
+            localStorage.setItem("data", JSON.stringify(data));
             loadVisits(data);
         })
     }
@@ -493,6 +502,7 @@ visit.addEventListener("click",async (e)=>{
 const edit_container = document.querySelector(".edit_container");
 const edit = document.getElementById("edit");
 edit.addEventListener("submit",async (e)=>{
+    const data = JSON.parse(localStorage.getItem("data"));
     e.preventDefault();
     const doctor = document.getElementById("edit_doctor");
     const title = document.getElementById("edit_title");
@@ -521,6 +531,7 @@ edit.addEventListener("submit",async (e)=>{
                 while (visit_container.firstChild) {
                     visit_container.firstChild.remove();
                 }
+                localStorage.setItem("data", JSON.stringify(data));
                 loadVisits(data);
             })          
             break;
@@ -535,10 +546,12 @@ edit.addEventListener("submit",async (e)=>{
                         break;
                     }
                 }
+                console.log(data);
                 close_edit_window(e);
                 while (visit_container.firstChild) {
                     visit_container.firstChild.remove();
                 }
+                localStorage.setItem("data", JSON.stringify(data));
                 loadVisits(data);
             })          
             break;
@@ -557,6 +570,7 @@ edit.addEventListener("submit",async (e)=>{
                 while (visit_container.firstChild) {
                     visit_container.firstChild.remove();
                 }
+                localStorage.setItem("data", JSON.stringify(data));
                 loadVisits(data);
             })          
             break;
@@ -567,6 +581,7 @@ edit.addEventListener("submit",async (e)=>{
 const filter = document.getElementById("filter");
 filter.addEventListener("submit",(e)=>{
     e.preventDefault();
+    const data = JSON.parse(localStorage.getItem("data"));
     const status_filter = document.getElementById("status_filter");
     const priority_filter = document.getElementById("priority_filter");
     const title_filter = document.getElementById("title_filter");
@@ -647,6 +662,7 @@ filter.addEventListener("submit",(e)=>{
     loadVisits(tmp_data);
 })
 async function loadVisits(data) {
+    console.log(data);
     const token = localStorage.getItem("token");
     if(token) {
         const show_modal = document.getElementById("show_modal");
