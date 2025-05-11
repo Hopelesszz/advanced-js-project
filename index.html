@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <header class="header">
+        <img src="img/logo.png"/>
+        <button id="show_modal" class="btn">Вхід</button>
+    </header>
+    <div class="line"></div>
+    <main class="main">
+        <div class="form-container">
+            <form id="filter" class="form">
+                <h1>Фільтри пошуку</h1>
+                <input type="text" id="title_filter" placeholder="Пошук за заголовком"/>
+                <select id="status_filter">
+                    <option value="">Статус: будь-який</option>
+                    <option value="Не пройдено">Не пройдено</option>
+                    <option value="Пройдено">Пройдено</option>
+                </select>
+                <select id="priority_filter">
+                    <option value="">Терміновість: будь-яка</option>
+                    <option value="Висока терміновість">Висока терміновість</option>
+                    <option value="Середня терміновість">Середня терміновість</option>
+                    <option value="Низька терміновість">Низька терміновість</option>
+                </select>
+                <button class="btn">Шукати</button>
+            </form>
+            <div class="auth_container">
+                <form id="auth" class="modal">
+                    <i class="fa-solid fa-xmark" id="close_auth"></i>
+                    <h1>Авторизація</h1>
+                    <input type="text" required id="email" placeholder="Email"/>
+                    <input type="text" required id="password" placeholder="Пароль"/>
+                    <button class="btn" id="auth_btn">Увійти</button>
+                </form>
+            </div>
+            <div class="create_container">
+                <form id="create" class="create_modal">
+                    <i class="fa-solid fa-xmark" id="close_create"></i>
+                    <h1>Створити візит</h1>
+                    <label for="doctor">Лікар</label>
+                    <select id="doctor">
+                        <option value=""></option>
+                        <option value="Кардіолог">Кардіолог</option>
+                        <option value="Стоматолог">Стоматолог</option>
+                        <option value="Терапевт">Терапевт</option>
+                    </select>
+                    <label style="display: none;" for="title">Мета візиту</label>
+                    <input style="display: none;" name="title" type="text" id="title" />
+                    <label style="display: none;" for="description">Короткий опис</label>
+                    <input style="display: none;" name="description" type="text" id="description" />
+                    <label style="display: none;" for="terms">Терміновість</label>
+                    <select style="display: none;" id="terms">
+                        <option value=""></option>
+                        <option value="Висока терміновість">Висока терміновість</option>
+                        <option value="Середня терміновість">Середня терміновість</option>
+                        <option value="Низька терміновість">Низька терміновість</option>
+                    </select>
+                    <label style="display: none;" for="full_name">ПІБ</label>
+                    <input style="display: none;" name="full_name" type="text" id="full_name" />
+                    <label style="display: none;" for="heart_rate">Звичайний тиск</label>
+                    <input style="display: none;" type="number" name="heart_rate" id="heart_rate" />
+                    <label style="display: none;" for="body_weight_index">Індекс маси тіла</label>
+                    <input style="display: none;" type="number" name="body_weight_index" id="body_weight_index" />
+                    <label style="display: none;" for="age">Вік</label>
+                    <input style="display: none;" type="number" name="age" id="age" />
+                    <label style="display: none;" for="illnesses">Перенесені захворювання серцево-судинної системи</label>
+                    <input style="display: none;" type="text" name="illnesses" id="illnesses" />
+                    <label style="display: none;" for="last_visit">Дата останнього відвідування</label>
+                    <input style="display: none;" type="date" name="last_visit" id="last_visit" />
+                    <label style="display: none;" for="status">Статус</label>
+                    <select style="display: none;" id="status">
+                        <option value=""></option>
+                        <option value="Не пройдено">Не пройдено</option>
+                        <option value="Пройдено">Пройдено</option>
+                    </select>
+                    <button class="btn" style="display: none;" id="create_btn">Додати</button>
+                </form>
+            </div>
+            <div style="display: none;" class="edit_container">
+                <form id="edit" class="edit_modal">
+                    <i class="fa-solid fa-xmark" id="close_edit"></i>
+                    <h2>Редагувати візит</h2>
+                    <label for="edit_doctor">Лікар</label>
+                    <select id="edit_doctor">
+                        <option value=""></option>
+                        <option value="Кардіолог">Кардіолог</option>
+                        <option value="Стоматолог">Стоматолог</option>
+                        <option value="Терапевт">Терапевт</option>
+                    </select>
+                    <label style="display: none;" for="edit_title">Мета візиту</label>
+                    <input style="display: none;" name="title" type="text" id="edit_title" />
+                    <label style="display: none;" for="edit_description">Короткий опис</label>
+                    <input style="display: none;" name="description" type="text" id="edit_description" />
+                    <label style="display: none;" for="edit_terms">Терміновість</label>
+                    <select style="display: none;" id="edit_terms">
+                        <option value=""></option>
+                        <option value="Висока терміновість">Висока терміновість</option>
+                        <option value="Середня терміновість">Середня терміновість</option>
+                        <option value="Низька терміновість">Низька терміновість</option>
+                    </select>
+                    <label style="display: none;" for="edit_full_name">ПІБ</label>
+                    <input style="display: none;" name="full_name" type="text" id="edit_full_name" />
+                    <label style="display: none;" for="edit_heart_rate">Звичайний тиск</label>
+                    <input style="display: none;" type="number" name="heart_rate" id="edit_heart_rate" />
+                    <label style="display: none;" for="edit_body_weight_index">Індекс маси тіла</label>
+                    <input style="display: none;" type="number" name="body_weight_index" id="edit_body_weight_index" />
+                    <label style="display: none;" for="edit_age">Вік</label>
+                    <input style="display: none;" type="number" name="age" id="edit_age" />
+                    <label style="display: none;" for="edit_illnesses">Перенесені захворювання серцево-судинної системи</label>
+                    <input style="display: none;" type="text" name="illnesses" id="edit_illnesses" />
+                    <label style="display: none;" for="edit_last_visit">Дата останнього відвідування</label>
+                    <input style="display: none;" type="date" name="last_visit" id="edit_last_visit" /> 
+                    <label style="display: none;" for="edit_status">Статус</label>
+                    <select style="display: none;" id="edit_status">
+                        <option value=""></option>
+                        <option value="Не пройдено">Не пройдено</option>
+                        <option value="Пройдено">Пройдено</option>
+                    </select>
+                    <button style="display: none;" class="btn" id="edit_btn">Редагувати</button>
+                </form>
+            </div>
+        </div>        
+        <h1 id="visits_title">Візити</h1>
+        <div class="visit_container">
+            <p id="no_visits">Доданих візитів немає.</p>
+        </div>
+    </main>
+    <script src="https://kit.fontawesome.com/c6f1d56926.js" crossorigin="anonymous"></script>
+    <script type="module" src="js/main.js"></script>
+</body>
+</html>

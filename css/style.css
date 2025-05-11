@@ -1,0 +1,270 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Segoe UI', sans-serif;
+    overflow-x: hidden;
+    color: #333;
+}
+body{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.header {
+    height: 100px;
+    width: 1910px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+}
+.btn {
+    height: 50px;
+    width: 200px;
+    text-align: center;
+    background-color: #1A76D1;
+    border: none;
+    color: white;
+    font-size: 20px;
+    border-radius: 5px;
+}
+.line {
+    width: 100vw;
+    border: 1px solid rgb(189, 189, 189);
+}
+.main{
+    width: 1910px;
+}
+.form-container {
+    height: 1100px;
+    width: 100%;
+    background-image: url("../img/call-bg.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 30px;
+}
+.form {
+    width: 700px;
+    height: 500px;
+    background-color: white;
+    border-radius: 5px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 40px;
+}
+.form input {
+    height: 50px;
+    width: 500px;
+    padding-left: 20px;
+    font-size: 18px;
+}
+.form select {
+    height: 50px;
+    width: 500px;
+    padding-left: 20px;
+    font-size: 18px;
+}
+.visit_container{
+    margin-top: 30px;
+    gap: 30px;
+    height: 100%;
+    width: 1910px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    flex-wrap: wrap;
+    padding-bottom: 20px;
+}
+.visit_container i {
+    position: relative;
+    left: 96%;
+}
+.auth_container{
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.5); 
+    align-items: center;
+    justify-content: center;
+    z-index: 2;
+}
+.create_container{
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.5); 
+    align-items: center;
+    justify-content: center;
+    z-index: 2;
+}
+.edit_container {
+    display: flex;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.5); 
+    align-items: center;
+    justify-content: center;
+    z-index: 2;
+}
+.edit_modal {
+    width: 400px;
+    height: 900px;
+    background-color: white;
+    border-radius: 5px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+}
+.edit_modal i {
+    position: relative;
+    left: 46%;
+}
+.edit_modal label {
+    font-size: 18px;
+    align-self: self-start;
+    margin-left: 30px;
+}
+.edit_modal input {
+    height: 40px;
+    width: 350px;
+    padding-left: 20px;
+    font-size: 18px;
+}
+.edit_modal select {
+    height: 40px;
+    width: 350px;
+    padding-left: 20px;
+    font-size: 18px;
+}
+.create_container label {
+    align-self: self-start;
+    margin-left: 30px;
+}
+.modal {
+    width: 400px;
+    height: 400px;
+    background-color: white;
+    border-radius: 5px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+}
+.create_modal {
+    width: 400px;
+    height: 800px;
+    background-color: white;
+    border-radius: 5px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+}
+.modal label {
+    font-size: 18px;
+}
+.modal input {
+    height: 50px;
+    width: 350px;
+    padding-left: 20px;
+    font-size: 18px;
+}
+.modal select {
+    height: 50px;
+    width: 350px;
+    padding-left: 20px;
+    font-size: 18px;
+}
+.modal  i {
+    position: relative;
+    left: 46%;
+}
+.create_modal i {
+    position: relative;
+    left: 46%;
+}
+.create_modal label {
+    font-size: 18px;
+}
+.create_modal input {
+    height: 40px;
+    width: 350px;
+    padding-left: 20px;
+    font-size: 18px;
+}
+.create_modal select {
+    height: 40px;
+    width: 350px;
+    padding-left: 20px;
+    font-size: 18px;
+}
+.full_visit{
+    width: 480px;
+    height: 300px;
+    border: 1px solid grey;
+    padding-left: 15px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    background-color: white;
+}
+.visit {
+    width: 350px;
+    height: 300px;
+    border: 1px solid grey;
+    padding-left: 15px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    background-color: white;
+}
+.visit h2 {
+    font-size: 30px;
+}
+.visit p {
+    font-size: 20px;
+}
+#visits_title {
+    margin-top: 30px;
+    text-align: center;
+}
+#no_visits {
+    font-size: 25px;
+    font-weight: bold;
+    text-align: center;
+}
+.one_visit {
+    display: flex;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.5); 
+    align-items: center;
+    justify-content: center;
+    z-index: 2;
+}
+.one_visit i {
+    position: relative;
+    left: 96%;
+}
